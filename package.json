@@ -1,0 +1,68 @@
+{
+  "name": "hipatia",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Ed de Almeida",
+    "email": "edvaldoajunior@gmail.com",
+    "url": "http://eddealmeida.blog.br"
+  },
+  "scripts": {
+    "sass": "sass ./public/stylesheets/style.scss ./public/stylesheets/style.css",
+    "start": "npm run sass && node ./bin/www",
+    "fixroutes": "./node_modules/eslint/bin/eslint.js ./routes/** --fix",
+    "fixsequelize": "./node_modules/eslint/bin/eslint.js ./sequelize/** --fix",
+    "fixapp": "./node_modules/eslint/bin/eslint.js ./app.js --fix",
+    "format": "npm run fixroutes && npm run fixsequelize && npm run fixapp"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "./bin/*",
+    "./node_modules/",
+    "*.scss"
+  ],
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3",
+    "pdf2json": "^2.0.1",
+    "pug": "^3.0.0",
+    "sequelize": "^6.19.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "sass": "^1.50.1"
+  }
+}
